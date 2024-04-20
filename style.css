@@ -1,0 +1,387 @@
+/*Estilo Geral*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth; /* Adiciona um efeito de rolagem suave */
+}
+
+body {
+    background-color: #000;
+    height: 100vh;
+}
+
+.interface {
+    max-width: 1280px;
+    margin: auto;
+}
+
+.flex{
+    display: flex;
+}
+
+.btn-formulario button{
+    padding: 10px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: blue;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+h2.titulo{
+    color: blue;
+    font-size: 38px;
+    text-align: center;
+}
+
+/* Estilo Cabeçalho */
+
+header{
+    padding: 40px 4%;
+}
+
+header > .interface{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header a{
+    color: #575757;
+    text-decoration: none;
+    display: inline-block;
+    transition: .2s;
+}
+
+header a:hover{
+    color: blue;
+    transform: scale(1.05);
+}
+
+header nav ul{
+    list-style-type: none;
+}
+
+header nav ul li{
+    display: inline-block;
+    padding: 0 40px;
+
+}
+
+.btn-formulario button:hover{
+    box-shadow: 0px 0px 8px blue;
+    transform: scale(1.05);
+}
+
+/* Estilo Topo do Site*/
+
+section.topo-do-site{
+    padding: 40px 4%;
+}
+
+section.topo-do-site .flex{
+    align-items: center;
+    justify-content: center;
+    gap: 250px;
+}
+
+.topo-do-site h1{
+    color: #fff;
+    font-size: 40px;
+    line-height: 50px;
+    animation: aparecer 1s ease-out forwards;
+}
+
+.topo-do-site .txt-topo-site p{
+    color: #fff;
+    margin: 40px 0;
+    animation: aparecer 2s ease-out forwards;
+    font-size: 20px;
+
+}
+
+.topo-do-site .txt-topo-site span{
+    color: blue;
+}
+
+.topo-do-site .img-topo-site img{
+    position: relative;
+    animation: flutuar 2s ease-in-out infinite alternate;
+
+}
+
+@keyframes flutuar {
+    0%{
+        top: 0;
+    }
+    100%{
+        top: 30px;
+    }
+    
+}
+
+@keyframes aparecer {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    
+}
+
+/*ESTILO DAS COBERTURAS*/
+
+section.coberturas{
+    padding: 40px 4%;
+}
+
+section.coberturas .flex{
+    gap: 60px;
+}
+
+
+.coberturas .coberturas-box{
+    color: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    margin-top: 45px;
+    transition: .2s;
+    flex: 1;
+    
+}
+
+.coberturas .coberturas-box:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 8px rgba(0, 0, 255, 0.326);
+}
+
+.coberturas .coberturas-box i{
+    font-size: 48px;
+    color: blue;
+    
+}
+
+.coberturas .coberturas-box h3{
+    font-size: 28px;
+    margin: 15px 0;
+}
+
+/*ESTILO DAS CONDIÇÕES*/
+
+section.condicoes{
+    padding: 80px 10%;
+}
+
+section.condicoes .flex{
+    align-items: center;
+    gap: 100px;
+}
+
+.condicoes .txt-condicoes{
+    color: #fff;
+}
+
+.condicoes .txt-condicoes h2{
+    font-size: 40px;
+    color: blue;
+    margin-bottom: 20px;
+}
+
+.condicoes .txt-condicoes p{
+    margin: 10px 0;
+}
+
+/*ESTILO DO FORMULÁRIO*/
+
+section.formulario{
+    padding: 80px 4%;
+}
+
+.formulario h2{
+    color: blue;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+form{
+    max-width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Criar três colunas de largura igual */
+    gap: 10px;
+    margin-top: 40px;
+}
+
+form input{
+    flex: 1;
+    background-color: #2b2b2b4e;
+    border: 0;
+    outline: 0;
+    padding: 20px 15px;
+    border-radius: 15px;
+    color: #fff;
+    font-size: 18px;
+
+}
+
+form input::placeholder{
+    color: blue;
+}
+
+/* ESTILO DO BOTÃO ENVIAR */
+.btn-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-enviar {
+    margin-top: 20px;
+    background-color: blue;
+    color: #000;
+    border: none;
+    padding: 20px 50px;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-enviar:hover {
+    box-shadow: 0px 0px 8px blue;
+    transform: scale(1.05);
+}
+
+/* ESTILO DO RODAPÉ */
+
+footer{
+    padding: 40px 4%;
+    box-shadow: 0 0 40px 10px #81818171;
+}
+
+footer .flex{
+    justify-content: space-between;
+}
+
+footer .line-footer{
+    padding: 20px 0;
+}
+
+.borda{
+    border-top: 2px solid blue;
+}
+
+footer .line-footer p{
+    color: blue;
+    
+}
+
+@media screen and (max-width: 1020px) {
+    /*ClASSES GERAIS*/
+    .flex{
+        flex-direction: column;
+    }
+
+    h2.titulo{
+        font-size: 35px;
+        line-height: 30px;
+    }
+
+    .topo-do-site .flex{
+        flex-direction: column-reverse;
+    }
+
+    /*CABEÇALHO*/
+    .menu-desktop, .btn-formulario{
+        display: none;
+    }
+    
+    /*TOPO DO SITE*/
+    section.topo-do-site .flex{
+        gap: 50px;
+    }
+
+    section.topo-do-site{
+        padding: 20px 8%;
+    }
+
+    .topo-do-site h1{
+        font-size: 30px;
+    }
+
+    .topo-do-site .img-topo-site img{
+        width: 100%;
+    
+    }
+
+    /*COBERTURAS*/
+
+    section.coberturas{
+        padding: 40px 8%;
+    }
+
+    /*CONDIÇÕES*/
+
+    section.condicoes{
+        padding: 80px 8%;
+    }
+
+    .condicoes .txt-condicoes h2{
+        font-size: 35px;
+        line-height: 35px;
+        text-align: center; 
+    }
+
+    .img-condicoes img{
+        width: 100%;
+    }
+
+    /*FORMULÁRIO*/
+
+    section.formulario{
+        padding: 80px 8%;       
+    }
+
+    .formulario h2{
+        font-size: 30px;
+        gap: 90px;
+    }
+
+    form{
+        grid-template-columns: repeat(1, 1fr); /* Criar três colunas de largura igual */
+        gap: 30px;
+       
+    }
+    
+}
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
