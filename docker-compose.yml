@@ -1,13 +1,13 @@
-version: "3"
+version: '3'
 
 services:
-  nextjs:
-    ports:
-      - 3000:3000
-    working_dir: /app
+  web:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: web
+    ports:
+      - "8080:80"
     volumes:
-      - .:/app
-      - /app/node_modules
+      - .:/var/www/html
+      #- ./phpmailer:/var/www/phpmailer
