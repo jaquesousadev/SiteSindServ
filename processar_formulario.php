@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $to = $email;
     $subject = "Confirmação de adesão";
     $message = "Olá $nome,\n\nObrigado por se cadastrar!\n\nDetalhes do cadastro:\nNome: $nome\nData de nascimento: $data_nascimento\nRG: $rg\nCPF: $cpf\nEmail: $email\nTelefone: $telefone\nEndereço: $endereco\nNúmero: $numero\nBairro: $bairro\nCidade: $cidade\nEstado: $estado";
-    $headers = "From: jaquelinesousa@planosfuneralunion.com.br";
+    $headers = "From: jaquelinesousaf@gmail.com";
 
     // Enviar o email
     mail($to, $subject, $message, $headers);
