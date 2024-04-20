@@ -24,6 +24,7 @@ body {
     display: flex;
 }
 
+
 .btn-formulario button{
     padding: 10px 40px;
     font-size: 18px;
@@ -40,6 +41,7 @@ h2.titulo{
     font-size: 38px;
     text-align: center;
 }
+
 
 /* Estilo Cabeçalho */
 
@@ -182,6 +184,10 @@ section.condicoes{
     padding: 80px 10%;
 }
 
+.condicoes .txt-condicoes span{
+    color: #fff;
+}
+
 section.condicoes .flex{
     align-items: center;
     gap: 100px;
@@ -207,6 +213,10 @@ section.formulario{
     padding: 80px 4%;
 }
 
+.interface span{
+    color: #fff;
+}
+
 .formulario h2{
     color: blue;
     font-size: 40px;
@@ -218,7 +228,7 @@ form{
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Criar três colunas de largura igual */
-    gap: 10px;
+    gap: 30px;
     margin-top: 40px;
 }
 
@@ -227,7 +237,7 @@ form input{
     background-color: #2b2b2b4e;
     border: 0;
     outline: 0;
-    padding: 20px 15px;
+    padding: 15px 15px;
     border-radius: 15px;
     color: #fff;
     font-size: 18px;
@@ -236,6 +246,10 @@ form input{
 
 form input::placeholder{
     color: blue;
+}
+
+input[type="date"] {
+   color: blue;
 }
 
 /* ESTILO DO BOTÃO ENVIAR */

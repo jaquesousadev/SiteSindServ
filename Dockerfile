@@ -16,4 +16,4 @@ COPY . /var/www/html
 #COPY ./phpmailer /var/www/phpmailer
 
 # Expor a porta 80 para o tráfego HTTP
-EXPOSE 80
+EXPOSE 8080
