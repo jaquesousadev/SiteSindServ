@@ -1,30 +1,57 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+// Inclua o arquivo de autoload do TCPDF
+require_once('tcpdf/tcpdf.php');
 
-    // Coletar os dados do formulário
-    $nome = $_POST['nome'];
-    $data_nascimento = $_POST['datansc'];
-    $rg = $_POST['rg'];
-    $cpf = $_POST['cpf'];
-    $email = $_POST['email'];
-    $telefone = $_POST['telefone'];
-    $endereco = $_POST['endereco'];
-    $numero = $_POST['numero'];
-    $bairro = $_POST['bairro'];
-    $cidade = $_POST['cidade'];
-    $estado = $_POST['estado'];
+// Crie uma nova instância do TCPDF
+$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
-    // Configurar o email
-    $to = $email;
-    $subject = "Confirmação de adesão";
-    $message = "Olá $nome,\n\nObrigado por se cadastrar!\n\nDetalhes do cadastro:\nNome: $nome\nData de nascimento: $data_nascimento\nRG: $rg\nCPF: $cpf\nEmail: $email\nTelefone: $telefone\nEndereço: $endereco\nNúmero: $numero\nBairro: $bairro\nCidade: $cidade\nEstado: $estado";
-    $headers = "From: jaquelinesousaf@gmail.com";
+// Defina informações do documento
+$pdf->SetCreator(PDF_CREATOR);
+$pdf->SetAuthor('Seu Nome');
+$pdf->SetTitle('Confirmação de Cadastro');
+$pdf->SetSubject('Confirmação de Cadastro');
+$pdf->SetKeywords('Cadastro, Confirmação');
 
-    // Enviar o email
-    mail($to, $subject, $message, $headers);
+// Defina o cabeçalho e rodapé
+$pdf->setHeaderData('', PDF_HEADER_LOGO_WIDTH, 'Confirmação de Cadastro', '');
 
-    // Redirecionar de volta para a página do formulário
-    header('Location: confirmacao.html');
-    exit;
-}
-?>
+// Defina o nome do arquivo de saída
+$pdf->setFileName('confirmacao_cadastro.pdf');
+
+// Defina o tamanho da fonte
+$pdf->SetFont('helvetica', '', 12);
+
+// Adicione uma nova página
+$pdf->AddPage();
+
+// Coletar dados do formulário
+$nome = $_POST['nome'];
+$data_nascimento = $_POST['datansc'];
+$rg = $_POST['rg'];
+$cpf = $_POST['cpf'];
+$email = $_POST['email'];
+$telefone = $_POST['telefone'];
+$endereco = $_POST['endereco'];
+$numero = $_POST['numero'];
+$bairro = $_POST['bairro'];
+$cidade = $_POST['cidade'];
+$estado = $_POST['estado'];
+
+// Escrever os dados no PDF
+$html = "
+    <h1>Confirmação de Cadastro</h1>
+    <p><strong>Nome:</strong> $nome</p>
+    <p><strong>Data de Nascimento:</strong> $data_nascimento</p>
+    <p><strong>RG:</strong> $rg</p>
+    <p><strong>CPF:</strong> $cpf</p>
+    <p><strong>Email:</strong> $email</p>
+    <p><strong>Telefone:</strong> $telefone</p>
+    <p><strong>Endereço:</strong> $endereco, $numero - $bairro</p>
+    <p><strong>Cidade:</strong> $cidade</p>
+    <p><strong>Estado:</strong> $estado</p>
+";
+
+$pdf->writeHTML($html, true, false, true, false, '');
+
+// Saída do PDF para o navegador
+$pdf->Output('confirmacao_cadastro.pdf', 'D');
