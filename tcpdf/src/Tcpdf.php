@@ -215,7 +215,7 @@ class Tcpdf extends \Com\Tecnick\Pdf\ClassObjects
         $zoom = 'default',
         string $layout = 'SinglePage',
         string $mode = 'UseNone'
-    ): static {
+    ) {
         $this->display['zoom'] = (is_numeric($zoom) || in_array($zoom, $this::VALIDZOOM)) ? $zoom : 'default';
         $this->display['layout'] = $this->page->getLayout($layout);
         $this->display['page'] = $this->page->getDisplay($mode);
