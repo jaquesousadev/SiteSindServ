@@ -8,12 +8,14 @@ $pdf = new TCPDF();
 // Defina informações do documento
 $pdf->SetCreator(PDF_CREATOR);
 $pdf->SetAuthor('Seu Nome');
-$pdf->SetTitle('Confirmação de Cadastro');
-$pdf->SetSubject('Confirmação de Cadastro');
-$pdf->SetKeywords('Cadastro, Confirmação');
+$pdf->SetTitle('Confirmação de Adesão');
+$pdf->SetSubject('Confirmação de Adesão');
+$pdf->SetKeywords('Adesão, Confirmação');
 
 // Defina o cabeçalho e rodapé
-$pdf->setHeaderData('', PDF_HEADER_LOGO_WIDTH, 'Confirmação de Cadastro', '');
+$pdf->setHeaderData('', PDF_HEADER_LOGO_WIDTH, 'Confirmação de Adesão', '');
+$pdf->setFooterData(date('d/m/Y'), 0, 'Confirmação de Adesão', true, 'Confirmação de Adesão', [0, 0, 0]);
+
 
 // Defina o nome do arquivo de saída
 $filename = 'confirmacao_cadastro.pdf';
@@ -43,7 +45,9 @@ $data_nascimento_formatada = date('d/m/Y', strtotime($data_nascimento));
 
 // Escrever os dados no PDF
 $html = "
-    <h1>Confirmação de Cadastro</h1>
+    <h1>Confirmação de Adesão ao plano funeral SindServ</h1>
+    <p>Confirmação de Adesão ao plano funeral SindServ no valor de R$8,90 mensais a contar desta data.</p>
+    <h1>Dados do Contratante:</h1>
     <p><strong>Nome:</strong> $nome</p>
     <p><strong>Data de Nascimento:</strong> $data_nascimento_formatada</p>
     <p><strong>RG:</strong> $rg</p>
@@ -53,9 +57,17 @@ $html = "
     <p><strong>Endereço:</strong> $endereco, $numero - $bairro</p>
     <p><strong>Cidade:</strong> $cidade</p>
     <p><strong>Estado:</strong> $estado</p>
+    <br>
+    <p>Documento gerado em: " . date('d/m/Y') . "</p>
 ";
-
+// Escrever HTML no PDF
 $pdf->writeHTML($html, true, false, true, false, '');
+
+// Adicionar campo de assinatura
+$pdf->SetLineStyle(array('width' => 0.5, 'color' => array(0, 0, 0)));
+$pdf->Line(10, 250, 110, 250); // Linha horizontal
+
 
 // Saída do PDF para o navegador
 $pdf->Output('confirmacao_cadastro.pdf', 'I');
+?>
