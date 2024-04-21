@@ -1,6 +1,6 @@
 <?php
 // Inclua o arquivo de autoload do TCPDF
-require_once('tcpdf/Tcpdf.php');
+require_once('tcpdf/src/Tcpdf.php');
 
 // Crie uma nova instância do TCPDF
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
