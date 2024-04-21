@@ -45,8 +45,7 @@ $data_nascimento_formatada = date('d/m/Y', strtotime($data_nascimento));
 
 // Escrever os dados no PDF
 $html = "
-    <h1>Confirmação de Adesão ao plano funeral SindServ</h1>
-    <p>Confirmação de Adesão ao plano funeral SindServ no valor de R$8,90 mensais a contar desta data.</p>
+    <h1>Confirmação de Adesão</h1>    
     <h1>Dados do Contratante:</h1>
     <p><strong>Nome:</strong> $nome</p>
     <p><strong>Data de Nascimento:</strong> $data_nascimento_formatada</p>
@@ -57,6 +56,7 @@ $html = "
     <p><strong>Endereço:</strong> $endereco, $numero - $bairro</p>
     <p><strong>Cidade:</strong> $cidade</p>
     <p><strong>Estado:</strong> $estado</p>
+    <p>Confirmação de Adesão ao produto funeral SindServ no valor de R$8,90 mensais a contar desta data.</p>
     <br>
     <p>Documento gerado em: " . date('d/m/Y') . "</p>
 ";
@@ -66,7 +66,6 @@ $pdf->writeHTML($html, true, false, true, false, '');
 // Adicionar campo de assinatura
 $pdf->SetLineStyle(array('width' => 0.5, 'color' => array(0, 0, 0)));
 $pdf->Line(10, 250, 110, 250); // Linha horizontal
-
 
 // Saída do PDF para o navegador
 $pdf->Output('confirmacao_cadastro.pdf', 'I');
