@@ -37,11 +37,15 @@ $bairro = $_POST['bairro'];
 $cidade = $_POST['cidade'];
 $estado = $_POST['estado'];
 
+
+// Formatar a data de nascimento para o formato brasileiro
+$data_nascimento_formatada = date('d/m/Y', strtotime($data_nascimento));
+
 // Escrever os dados no PDF
 $html = "
     <h1>Confirmação de Cadastro</h1>
     <p><strong>Nome:</strong> $nome</p>
-    <p><strong>Data de Nascimento:</strong> $data_nascimento</p>
+    <p><strong>Data de Nascimento:</strong> $data_nascimento_formatada</p>
     <p><strong>RG:</strong> $rg</p>
     <p><strong>CPF:</strong> $cpf</p>
     <p><strong>Email:</strong> $email</p>
