@@ -3,7 +3,7 @@
 require_once('tcpdf/tcpdf.php');
 
 // Crie uma nova instância do TCPDF
-$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+$pdf = new TCPDF();
 
 // Defina informações do documento
 $pdf->SetCreator(PDF_CREATOR);
@@ -16,7 +16,7 @@ $pdf->SetKeywords('Cadastro, Confirmação');
 $pdf->setHeaderData('', PDF_HEADER_LOGO_WIDTH, 'Confirmação de Cadastro', '');
 
 // Defina o nome do arquivo de saída
-$pdf->setFileName('confirmacao_cadastro.pdf');
+$filename = 'confirmacao_cadastro.pdf';
 
 // Defina o tamanho da fonte
 $pdf->SetFont('helvetica', '', 12);
@@ -54,4 +54,4 @@ $html = "
 $pdf->writeHTML($html, true, false, true, false, '');
 
 // Saída do PDF para o navegador
-$pdf->Output('confirmacao_cadastro.pdf', 'D');
+$pdf->Output('confirmacao_cadastro.pdf', 'I');
