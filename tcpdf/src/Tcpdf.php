@@ -212,7 +212,7 @@ class Tcpdf extends \Com\Tecnick\Pdf\ClassObjects
      *                           * UseAttachments (PDF 1.6) Attachments panel visible
      */
     public function setDisplayMode(
-        int|string $zoom = 'default',
+        $zoom = 'default',
         string $layout = 'SinglePage',
         string $mode = 'UseNone'
     ): static {
@@ -221,6 +221,7 @@ class Tcpdf extends \Com\Tecnick\Pdf\ClassObjects
         $this->display['page'] = $this->page->getDisplay($mode);
         return $this;
     }
+    
 
     /**
      * Get a barcode PDF code.
