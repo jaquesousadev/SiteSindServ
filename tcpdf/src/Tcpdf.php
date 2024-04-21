@@ -15,6 +15,7 @@
  */
 
 namespace Com\Tecnick\Pdf;
+require_once 'tcpdf/src/autoload.php';
 
 use Com\Tecnick\Barcode\Exception as BarcodeException;
 use Com\Tecnick\Pdf\Encrypt\Encrypt as ObjEncrypt;
@@ -39,7 +40,8 @@ use Com\Tecnick\Pdf\Exception as PdfException;
  *
  * @SuppressWarnings(PHPMD.DepthOfInheritance)
  */
-class Tcpdf extends \Com\Tecnick\Pdf\ClassObjects
+ class Tcpdf extends \TCPDF
+
 {
     /**
      * Initialize a new PDF object.
