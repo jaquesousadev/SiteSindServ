@@ -130,18 +130,61 @@
             <div class="interface">
                 <h2>Formulário de <span>adesão</span></h2>
                 
-                <form action="processar_formulario.php" method="post">
-                    <input type="text" name="nome" id="nome" placeholder="Nome Completo:" autocomplete="off" required >
-                    <input type="date" name="datansc" id="data_nascimento" placeholder="Data de nascimento" autocomplete="off" >
-                    <input type="text" name="rg" id="rg" placeholder="RG:" autocomplete="off" >
-                    <input type="text" name="cpf" id="cpf" placeholder="CPF:" autocomplete="off" >
-                    <input type="email" name="email" id="email" placeholder="E-mail"autocomplete="off" >
-                    <input type="text" name="telefone" id="telefone" placeholder="Telefone:" autocomplete="off" >
-                    <input type="text" name="endereco" id="endereco" placeholder="Endereço:" autocomplete="off" >
-                    <input type="text" name="numero" id="numero" placeholder="Numero:" autocomplete="off" >
-                    <input type="text" name="bairro" id="bairro" placeholder="Bairro:" autocomplete="off" >
-                    <input type="text" name="cidade" id="cidade" placeholder="Cidade:" autocomplete="off" >
-                    <input type="text" name="estado" id="estado" placeholder="Estado:" autocomplete="off" >
+                <form action="https://api.sheetmonkey.io/form/3zVzvQrkhaPMoSXSdrrQAk" method="post">
+                    <div>
+                        <label for="nome">Nome Completo:</label>
+                        <input type="text" name="nome" id="nome" placeholder="Nome Completo" autocomplete="off" required>
+                    </div>
+
+                    <div>
+                        <label for="nome">Data de nascimento:</label>
+                        <input type="date" name="datansc" id="data_nascimento" placeholder="Data de nascimento" autocomplete="off" >
+                    </div>
+
+                    <div>
+                        <label for="nome">RG:</label>
+                        <input type="text" name="rg" id="rg" placeholder="RG:" autocomplete="off" >
+                    </div>
+
+                    <div>
+                        <label for="nome">CPF:</label>
+                        <input type="text" name="cpf" id="cpf" placeholder="CPF:" autocomplete="off" >
+                    </div>
+
+                    <div>
+                        <label for="nome">E-mail:</label>
+                        <input type="email" name="email" id="email" placeholder="E-mail"autocomplete="off" >
+                    </div>
+
+                    <div>
+                        <label for="nome">Telefone:</label>
+                        <input type="text" name="telefone" id="telefone" placeholder="Telefone:" autocomplete="off" >
+                    </div>
+
+                    <div>
+                        <label for="nome">Endereço:</label>
+                        <input type="text" name="endereco" id="endereco" placeholder="Endereço:" autocomplete="off" >
+                    </div>
+
+                    <div>
+                        <label for="nome">Numero:</label>
+                        <input type="text" name="numero" id="numero" placeholder="Numero:" autocomplete="off" >
+                    </div>
+
+                    <div>
+                        <label for="nome">Bairro:</label>
+                        <input type="text" name="bairro" id="bairro" placeholder="Bairro:" autocomplete="off" >
+                    </div>
+
+                    <div>
+                        <label for="nome">Cidade:</label>
+                        <input type="text" name="cidade" id="cidade" placeholder="Cidade:" autocomplete="off" >
+                    </div>
+
+                    <div>
+                        <label for="nome">Estado:</label>
+                        <input type="text" name="estado" id="estado" placeholder="UF" autocomplete="off" >
+                    </div>
 
                     <div class="btn-wrapper">
                         <button type="submit" class="btn-enviar">Enviar</button>
@@ -151,6 +194,33 @@
                 
             </div><!--formulario/interface-->
         </section><!--formulario-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+            <script>
+                document.getElementById('form').addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    // Get form data
+                    const formData = new FormData(this);
+                    const formDataObj = Object.fromEntries(formData.entries());
+
+                    // Generate PDF
+                    const pdf = new jsPDF();
+                    let yPos = 10;
+                    for (const key in formDataObj) {
+                        if (formDataObj.hasOwnProperty(key)) {
+                            const value = formDataObj[key];
+                            pdf.text(10, yPos, `${key}: ${value}`);
+                            yPos += 10;
+                        }
+                    }
+
+                    // Save PDF
+                    pdf.save('formulario.pdf');
+
+                    // Submit the form
+                    this.submit();
+                });
+            </script>
     </main>
 
     <footer>

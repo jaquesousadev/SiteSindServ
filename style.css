@@ -244,12 +244,32 @@ form input{
 
 }
 
-form input::placeholder{
+/* Ajustando a largura dos campos */
+form div {
+    display: grid;
+    grid-template-columns: 1fr; /* Ocupar toda a largura */
+}
+
+form label {
     color: blue;
 }
 
+form input {
+    background-color: #2b2b2b4e;
+    border: 0;
+    outline: 0;
+    padding: 15px;
+    border-radius: 15px;
+    color: #fff;
+    font-size: 18px;
+}
+
+form input::placeholder{
+    color: rgb(78, 78, 82);
+}
+
 input[type="date"] {
-   color: blue;
+   color: rgb(78, 78, 82);
 }
 
 /* ESTILO DO BOTÃO ENVIAR */
