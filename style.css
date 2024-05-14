@@ -142,50 +142,10 @@ section.topo-do-site .flex{
     
 }
 
- /* Estilos CSS para o header */
- .header-imagem-topo {
-    position: relative;
-    background-image: url('images/fundo.jpg'); /* caminho da sua imagem de fundo */
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px; /* Adicionando bordas arredondadas */
-    padding-top: 100px; /* ajuste conforme necessário para não ficar por baixo do menu */
-    animation: fadeIn 2s ease-in-out; /* Adicionando a animação fadeIn */
-}
-
-/* Estilos CSS para a imagem no topo */
-.header-image {
-    width: 100%;
-    height: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
-
-/* Animação fadeIn */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-
-
-/* Estilos adicionais para ajustar a posição do conteúdo */
-.interface {
-    position: relative;
-    z-index: 1;
-}
-
-
 /*ESTILO DAS COBERTURAS*/
 
 section.coberturas{
-    padding: 400px 4% 50px; /* Adicione a mesma margem superior aqui */
+    padding: 40px 4% ; /* Adicione a mesma margem superior aqui */
 }
 
 section.coberturas .flex{
