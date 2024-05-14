@@ -96,14 +96,14 @@ section.topo-do-site .flex{
 }
 
 .topo-do-site h1{
-    color: #000;
+    color: #fff;
     font-size: 40px;
     line-height: 60px;
     animation: aparecer 1s ease-out forwards;
 }
 
 .topo-do-site .txt-topo-site p{
-    color: #000;
+    color: #fff;
     margin: 40px 0;
     animation: aparecer 2s ease-out forwards;
     font-size: 20px;
@@ -425,6 +425,8 @@ footer .line-footer p{
     
     }
 
+    
+
     /*COBERTURAS*/
 
     section.coberturas{
@@ -463,6 +465,7 @@ footer .line-footer p{
         gap: 30px;
        
     }
+    
     
 }
 
