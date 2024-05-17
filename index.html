@@ -140,7 +140,7 @@
             <div class="interface">
                 <h2>Formulário de <span>adesão</span></h2>
                 
-                <form action="https://api.sheetmonkey.io/form/3zVzvQrkhaPMoSXSdrrQAk" method="post">
+                <form action="https://api.sheetmonkey.io/form/3zVzvQrkhaPMoSXSdrrQAk" method="post" class="custom-form">
                     <div>
                         <label for="nome">Nome Completo:</label>
                         <input type="text" name="nome" id="nome" placeholder="Nome Completo" autocomplete="off" required>
@@ -192,10 +192,15 @@
                     </div>
 
                     <div>
+                        <label for="cep">CEP:</label>
+                        <input type="text" id="cep" name="cep" pattern="[0-9]{5}-[0-9]{3}" placeholder="Ex: 12345-678">
+                    </div>
+
+                    <div>
                         <label for="nome">Estado:</label>
                         <input type="text" name="estado" id="estado" placeholder="UF" autocomplete="off" >
                     </div>
-
+                    
                     <div class="btn-wrapper">
                         <button type="submit" class="btn-enviar">Enviar</button>
                     </div>
@@ -204,33 +209,7 @@
                 
             </div><!--formulario/interface-->
         </section><!--formulario-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-            <script>
-                document.getElementById('form').addEventListener('submit', function(e) {
-                    e.preventDefault();
-
-                    // Get form data
-                    const formData = new FormData(this);
-                    const formDataObj = Object.fromEntries(formData.entries());
-
-                    // Generate PDF
-                    const pdf = new jsPDF();
-                    let yPos = 10;
-                    for (const key in formDataObj) {
-                        if (formDataObj.hasOwnProperty(key)) {
-                            const value = formDataObj[key];
-                            pdf.text(10, yPos, `${key}: ${value}`);
-                            yPos += 10;
-                        }
-                    }
-
-                    // Save PDF
-                    pdf.save('formulario.pdf');
-
-                    // Submit the form
-                    this.submit();
-                });
-            </script>
+        
     </main>
 
     <footer>

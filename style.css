@@ -270,6 +270,7 @@ form {
     margin-top: 40px;
 }
 
+
 /* Ajustando a largura dos campos */
 form div {
     display: grid;
@@ -291,17 +292,18 @@ form input {
 }
 
 form input::placeholder {
-    color: rgb(78, 78, 82);
+    color: rgb(232, 232, 238);
 }
 
 input[type="date"] {
-   color: rgb(78, 78, 82);
+   color: rgb(240, 240, 246);
 }
 
 /* ESTILO DO BOTÃO ENVIAR */
 .btn-wrapper {
     display: flex;
     justify-content: center;
+    grid-column: span 3; /* Ocupa todas as três colunas do formulário */
 }
 
 .btn-enviar {
@@ -425,6 +427,8 @@ footer .line-footer p{
         gap: 30px;
        
     }
+
+    
     
     
 }
